@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+/* runs test to see if expected argument is === to value returned by function2test argument */
+function myFunctionTest(expected, found) {
+  if (expected === found) {
+    return "TEST SUCCEEDED";
+  } else {
+    return "TEST FAILED.  Expected " + expected + " found " + found;
+  }
+}
+
+/* max returns the maximum of 2 arguments */
+function max(a, b) {
+  if (a > b) {
+    return a;
+  } else {
+    return b;
+  };
+}
+console.log("1 Expected output of max(20,10) is 20  " + myFunctionTest(20, max(20, 10)));
+
+/* max3 takes 3 numbers as arguments and returns the largest */
+function maxOfThree(a, b, c) {
+  return max(max(a, b), c);
+
+}
+
+console.log("2 Expected output of maxOfThree(5,4,44) is 44  " + myFunctionTest(44, maxOfThree(5, 4, 44)));
+console.log("2 Expected output of maxOfThree(55,4,44) is 55  " + myFunctionTest(55, maxOfThree(55, 4, 44)));
+
+console.log("2 Expected output of maxOfThree(55,4,44) is 55  " + myFunctionTest(4, maxOfThree(55, 4, 44)));
+
+
+// 3. Write a function isVowel() that takes a character (i.e. a string of length 1) and returns true if it is a vowel, false otherwise.
+function isVowel(letter) {
+  const vowels = new Set('aeiou');
+  return vowels.has(letter.toLowerCase());
+};
+console.log("3 Expected output of isVowel('i') is true  " + myFunctionTest(true, isVowel('i')));
+console.log("3 Expected output of isVowel('b') is false  " + myFunctionTest(false, isVowel('b')));
+
+// 4. Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
+function sum(arr) {
+  return arr.reduce((acc, num) => acc + num, 0);
+};
+function multiply(arr) {
+  return arr.reduce((acc, num) => acc * num, 1);
+}
+console.log("4 Expected output of sum([1,2,3,4]) is 10  " + myFunctionTest(10, sum([1,2,3,4])));
+console.log("4 Expected output of multiply([1,2,3,4]) is 24  " + myFunctionTest(24, multiply([1,2,3,4])));
+
+// 5. Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
+function reverse(str) {
+  const chars = str.split('');
+  return chars.reverse().join('');
+}
+console.log("5 Expected output of reverse(\"jag testar\") is ratset gaj  " + myFunctionTest('ratset gaj', reverse("jag testar")));
+
+// 6. Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
+function findLongestWord(words) {
+  let longest = '';
+  for (let word of words) {
+    if (longest.length < word.length) longest = word;
+  }
+  return longest;
+}
+console.log("6 Expected output of findLongestWord(['I', 'am', 'Spider', 'Man']) is Spider  " + myFunctionTest('Spider', findLongestWord(['I', 'am', 'Spider', 'Man'])));
+
+// 7. Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
+function filterLongWords(words, minLength) {
+  return words.filter(word => word.length > minLength);
+}
+console.log("7 Expected output of filterLongWords(['I', 'am', 'Spider', 'Man'], 2) is Spider,Man  " + myFunctionTest(['Spider', 'Man'].join(','), filterLongWords(['I', 'am', 'Spider', 'Man'], 2).join(',')));
+
+
+    </script>
+</head>
+<body>
+
+Look in the Chrome developer console to see the output. CTRL_SHIFT_J <br />
+Or on Firefox with CTRL_SHIFT_K
+
+</body>
+</html>
