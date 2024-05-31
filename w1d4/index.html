@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Responsive Design</title>
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+        <style>
+            @media screen and (max-width: 599px) {
+                .content {
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                }
+                .col2 {
+                    grid-row: 2;
+                    grid-column: 1 / span 2;
+                }
+            }
+        </style>
+	</head>
+    <body>
+        <div class="text-center p-5 bg-blue-300">
+            <h1 class="text-4xl font-bold">Header</h1>
+        </div>
+
+        <div class="flex bg-teal-800 text-white text-center">
+            <div class="p-3 border-r-2 border-black">Menu 1</div>
+            <div class="p-3 border-r-2 border-black">Menu 2</div>
+            <div class="p-3 border-r-2 border-black">Menu 3</div>
+        </div>
+
+        <div class="grid grid-cols-4 h-64 content">
+            <div class="bg-gray-500 p-2 h-full col1">Column 1</div>
+            <div class="bg-gray-400 p-2 h-full col-span-2 col2">Column 2</div>
+            <div class="bg-gray-300 p-2 h-full col3">Column 3</div>
+        </div>
+
+        <div class="text-center p-5 bg-teal-800 text-white">
+            <p class="text-2xl">Footer</p>
+        </div>
+    </body>
+</html>
