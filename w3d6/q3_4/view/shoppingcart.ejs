@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <ul>
+        <% for(let key in shoppingCart) { %>
+            <li><%= shoppingCart[key].name %>: $<%= shoppingCart[key].price %> x <%= shoppingCart[key].quantity %></li>
+        <% } %>
+    </ul>
+    <p>Total: $<%= total %></p>
+    <a href="/">Back to Shop</a>
+</body>
+</html>
